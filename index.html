@@ -1382,7 +1382,7 @@ async function parseAI() {
   const today = new Date().toLocaleDateString('en-US',{weekday:'long',year:'numeric',month:'long',day:'numeric'});
   const prompt = `Today is ${today}. Extract calendar event details from: "${text}"\nReturn ONLY valid JSON (no markdown):\n{"title":"","date":"YYYY-MM-DD","time":"HH:MM","duration":"60 minutes","type":"solo or group","capacity":1,"price":"$80 or Free","notes":""}`;
   try {
-    const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${S.cfg.gemini}`,{
+    const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${S.cfg.gemini}`,{
       method:'POST',headers:{'Content-Type':'application/json'},
       body:JSON.stringify({contents:[{parts:[{text:prompt}]}]})
     });
